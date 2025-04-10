@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: weather-service
+  cloud:
+    config:
+      enabled: false
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    default-property-inclusion: non_null
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    enabled: ${EUREKA_CLIENT_ENABLED:false}
+    register-with-eureka: ${EUREKA_CLIENT_REGISTER:false}
+    fetch-registry: ${EUREKA_CLIENT_FETCH:false}
+  instance:
+    prefer-ip-address: true
+
+# OpenWeatherMap API Configuration
+weather:
+  api:
+    base-url: http://api.openweathermap.org/data/2.5
+    api-key: ${OPENWEATHER_API_KEY:dummy-key}  # Use dummy-key as default for development
+
+# Cache Configuration
+spring.cache:
+  type: caffeine
+  caffeine:
+    spec: maximumSize=500,expireAfterWrite=600s
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Logging
+logging:
+  level:
+    com.weatherservice: DEBUG
+    org.springframework.web: INFO
+    feign.Logger: DEBUG 

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${city} + ' Weather - Weather Service'">City Weather - Weather Service</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.2/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body th:class="${backgroundClass}">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-cloud-sun me-2"></i>Weather Service
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/weather"><i class="fas fa-search me-1"></i> Search</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Current Weather Card -->
+                <div class="card weather-card shadow border-0">
+                    <div class="card-body p-0">
+                        <div class="row g-0">
+                            <!-- Left side: Location and basic info -->
+                            <div class="col-md-6 p-4 p-md-5 bg-white-translucent">
+                                <h1 class="display-5 fw-bold mb-0" th:text="${weather.name}">City Name</h1>
+                                <p class="text-muted mb-4" th:if="${weather.sys != null}" th:text="${weather.sys.country}">Country</p>
+                                
+                                <div class="d-flex align-items-center mb-4">
+                                    <img th:if="${weather.weather != null && !weather.weather.empty}" 
+                                         th:src="'http://openweathermap.org/img/wn/' + ${weather.weather[0].icon} + '@2x.png'" 
+                                         alt="Weather icon" class="weather-icon me-3">
+                                    <div>
+                                        <h2 class="mb-0" th:if="${weather.main != null}" th:text="${#numbers.formatDecimal(weather.main.temp, 0, 1)} + '°C'">0°C</h2>
+                                        <p class="text-capitalize mb-0" th:if="${weather.weather != null && !weather.weather.empty}" th:text="${weather.weather[0].description}">Weather description</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="weather-details">
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <div class="icon-box bg-info bg-opacity-25 me-3">
+                                                    <i class="fas fa-temperature-high text-info"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-muted mb-0">Feels like</p>
+                                                    <h5 th:if="${weather.main != null}" th:text="${#numbers.formatDecimal(weather.main.feels_like, 0, 1)} + '°C'">0°C</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <div class="icon-box bg-warning bg-opacity-25 me-3">
+                                                    <i class="fas fa-tint text-warning"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-muted mb-0">Humidity</p>
+                                                    <h5 th:if="${weather.main != null}" th:text="${weather.main.humidity} + '%'">0%</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <div class="icon-box bg-success bg-opacity-25 me-3">
+                                                    <i class="fas fa-wind text-success"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-muted mb-0">Wind Speed</p>
+                                                    <h5 th:if="${weather.wind != null}" th:text="${weather.wind.speed} + ' m/s'">0 m/s</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <div class="icon-box bg-danger bg-opacity-25 me-3">
+                                                    <i class="fas fa-compress-arrows-alt text-danger"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-muted mb-0">Pressure</p>
+                                                    <h5 th:if="${weather.main != null}" th:text="${weather.main.pressure} + ' hPa'">0 hPa</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right side: Weather summary and data -->
+                            <div class="col-md-6 p-5 weather-details-right">
+                                <div class="text-white">
+                                    <h3 class="mb-4">Weather Details</h3>
+                                    
+                                    <div class="weather-detail-item mb-3">
+                                        <p class="mb-1">Min - Max</p>
+                                        <h4 th:if="${weather.main != null}" th:text="${#numbers.formatDecimal(weather.main.temp_min, 0, 1)} + '°C - ' + ${#numbers.formatDecimal(weather.main.temp_max, 0, 1)} + '°C'">0°C - 0°C</h4>
+                                    </div>
+                                    
+                                    <div class="weather-detail-item mb-3">
+                                        <p class="mb-1">Visibility</p>
+                                        <h4 th:text="${weather.visibility / 1000} + ' km'">0 km</h4>
+                                    </div>
+                                    
+                                    <div class="weather-detail-item mb-3">
+                                        <p class="mb-1">Cloud Cover</p>
+                                        <h4 th:if="${weather.clouds != null}" th:text="${weather.clouds.all} + '%'">0%</h4>
+                                    </div>
+                                    
+                                    <div class="weather-detail-item mb-3" th:if="${weather.wind != null}">
+                                        <p class="mb-1">Wind Direction</p>
+                                        <h4 th:text="${weather.wind.deg} + '°'">0°</h4>
+                                    </div>
+                                    
+                                    <div class="weather-detail-item" th:if="${weather.sys != null}">
+                                        <p class="mb-1">Sunrise / Sunset</p>
+                                        <h4>
+                                            <span th:text="${#dates.format(new java.util.Date(weather.sys.sunrise * 1000), 'HH:mm')}">00:00</span> / 
+                                            <span th:text="${#dates.format(new java.util.Date(weather.sys.sunset * 1000), 'HH:mm')}">00:00</span>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action buttons -->
+                <div class="d-flex justify-content-center mt-4">
+                    <a href="/weather" class="btn btn-primary me-2">
+                        <i class="fas fa-search me-2"></i>New Search
+                    </a>
+                    <a href="/" class="btn btn-outline-light">
+                        <i class="fas fa-home me-2"></i>Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
+    <script>
+        $(document).ready(function() {
+            // Add animation to weather card
+            $('.weather-card').addClass('animated-card');
+        });
+    </script>
+</body>
+</html> 

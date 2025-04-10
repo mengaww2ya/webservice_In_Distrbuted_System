@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Weather - Weather Service</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.2/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="search-bg">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-cloud-sun me-2"></i>Weather Service
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/weather"><i class="fas fa-search me-1"></i> Search</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg border-0 rounded-3 bg-white-translucent">
+                    <div class="card-body p-5">
+                        <h2 class="text-center mb-4">
+                            <i class="fas fa-map-marker-alt text-danger me-2"></i>Find Weather by City
+                        </h2>
+                        
+                        <form action="/weather" method="post" class="needs-validation" novalidate>
+                            <div class="form-floating mb-4">
+                                <input type="text" class="form-control form-control-lg" id="city" name="city" placeholder="Enter city name" required>
+                                <label for="city">Enter city name (e.g., London, Tokyo, New York)</label>
+                                <div class="invalid-feedback">
+                                    Please enter a city name
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg py-3">
+                                    <i class="fas fa-search me-2"></i>Get Weather
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <div class="card bg-info bg-opacity-25 border-0 shadow-sm mb-4">
+                            <div class="card-body text-center py-4">
+                                <i class="fas fa-temperature-high fa-3x text-info mb-3"></i>
+                                <h5>Temperature</h5>
+                                <p class="mb-0">Current, min, and max temperature values</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-success bg-opacity-25 border-0 shadow-sm mb-4">
+                            <div class="card-body text-center py-4">
+                                <i class="fas fa-wind fa-3x text-success mb-3"></i>
+                                <h5>Wind Details</h5>
+                                <p class="mb-0">Wind speed and direction information</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-warning bg-opacity-25 border-0 shadow-sm mb-4">
+                            <div class="card-body text-center py-4">
+                                <i class="fas fa-cloud-sun-rain fa-3x text-warning mb-3"></i>
+                                <h5>Weather Condition</h5>
+                                <p class="mb-0">Detailed weather conditions and description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">© 2025 Weather Service | Powered by OpenWeatherMap API</p>
+        </div>
+    </footer>
+    
+    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
+    <script>
+        // Form validation
+        (function() {
+            'use strict';
+            
+            var forms = document.querySelectorAll('.needs-validation');
+            
+            Array.prototype.slice.call(forms).forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+</body>
+</html> 

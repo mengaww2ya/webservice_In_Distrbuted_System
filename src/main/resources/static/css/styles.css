@@ -1,0 +1,204 @@
+/* General Styles */
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --accent-color: #47b8e0;
+    --text-color: #333;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    min-height: 100vh;
+    transition: background 0.5s ease;
+}
+
+/* Background Styles */
+.bg-gradient {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+.search-bg {
+    background: linear-gradient(45deg, #1e3c72, #2a5298);
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+.error-bg {
+    background: linear-gradient(45deg, #b92b27, #1565c0);
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+/* Weather Background Classes */
+.clear-sky {
+    background: linear-gradient(to bottom, #2980b9, #6dd5fa, #ffffff);
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+.cloudy {
+    background: linear-gradient(to bottom, #757f9a, #d7dde8);
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+.rainy {
+    background: linear-gradient(to bottom, #3a7bd5, #3a6073);
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+.thunderstorm {
+    background: linear-gradient(to bottom, #283e51, #4b79a1);
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+.snowy {
+    background: linear-gradient(to bottom, #8e9eab, #eef2f3);
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+.misty {
+    background: linear-gradient(to bottom, #606c88, #3f4c6b);
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+.default {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Card Styles */
+.bg-white-translucent {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px);
+}
+
+.feature {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Weather Card Styles */
+.weather-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card.animated-card {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.weather-details-right {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+.weather-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.weather-detail-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.75rem;
+}
+
+.weather-detail-item:last-child {
+    border-bottom: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+    .weather-details-right {
+        border-radius: 0 0 1rem 1rem;
+    }
+}
+
+/* Form Styles */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(74, 111, 165, 0.25);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Error Page Styles */
+.error-icon {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+} 

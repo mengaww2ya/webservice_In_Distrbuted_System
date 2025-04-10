@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Service</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.2/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="bg-gradient">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card mt-5 shadow-lg bg-white-translucent">
+                    <div class="card-body text-center p-5">
+                        <h1 class="mb-4 text-primary fw-bold">
+                            <i class="fas fa-cloud-sun me-2"></i>Weather Service
+                        </h1>
+                        <p class="lead mb-5">Get real-time weather information for any city around the world with our beautiful and modern weather service.</p>
+                        
+                        <div class="row mb-5">
+                            <div class="col-md-4">
+                                <div class="feature">
+                                    <i class="fas fa-bolt fa-2x text-warning mb-3"></i>
+                                    <h5>Fast & Reliable</h5>
+                                    <p>Get accurate weather data in seconds</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature">
+                                    <i class="fas fa-globe fa-2x text-success mb-3"></i>
+                                    <h5>Global Coverage</h5>
+                                    <p>Weather data from cities worldwide</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature">
+                                    <i class="fas fa-chart-line fa-2x text-info mb-3"></i>
+                                    <h5>Detailed Metrics</h5>
+                                    <p>Comprehensive weather information</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="/weather" class="btn btn-primary btn-lg px-4 py-3 fw-bold shadow">
+                            <i class="fas fa-search me-2"></i>Check Weather Now
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="text-center text-white mt-4">
+                    <p>© 2025 Weather Service | Powered by OpenWeatherMap API</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html> 
