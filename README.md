@@ -121,6 +121,24 @@ GET /api/weather/London
 }
 ```
 
+
+
+# 🌦️ Distributed Weather Service
+## 📷 Browser View
+
+Below is a visual guide to show how the project looks like in the browser:
+
+1. **Home Page**  
+  ![Home Page](../images/home.png)
+
+2. **Weather Data Search**  
+  ![Input city](../images/find_weather.png)
+
+3. **Weather Data result display**  
+  ![Result](../images/result.png)
+
+These images illustrate the user interface and functionality of the project when accessed through a browser.
+
 ---
 
 ## 🏗️ Distributed System Features
