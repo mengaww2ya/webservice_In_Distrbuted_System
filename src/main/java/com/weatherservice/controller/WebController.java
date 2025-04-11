@@ -1,5 +1,4 @@
 package com.weatherservice.controller;
-
 import com.weatherservice.model.WeatherResponse;
 import com.weatherservice.service.WeatherService;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,10 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
-
 @Controller
 public class WebController {
-
     private final WeatherService weatherService;
     private final RestTemplate restTemplate = new RestTemplate();
     

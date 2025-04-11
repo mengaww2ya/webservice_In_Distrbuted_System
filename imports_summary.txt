@@ -1,0 +1,57 @@
+### Spring Framework Imports
+1. org.springframework.boot.*
+   - Bootstraps the Spring Boot application and provides auto-configuration.
+
+2. org.springframework.web.bind.annotation.*
+   - Handles RESTful web requests (e.g., @GetMapping, @PostMapping, @RequestParam, etc.).
+
+3. org.springframework.stereotype.Controller
+   - Marks a class as a Spring MVC controller for handling web requests.
+
+4. org.springframework.http.*
+   - Provides HTTP-related utilities like ResponseEntity for building responses.
+
+5. org.springframework.beans.factory.annotation.Value
+   - Injects values from application properties into fields.
+
+6. org.springframework.cache.annotation.EnableCaching
+   - Enables caching support in the application.
+
+7. org.springframework.cloud.client.discovery.EnableDiscoveryClient
+   - Enables service discovery for registering with a discovery server (e.g., Eureka).
+
+8. org.springframework.cloud.openfeign.EnableFeignClients
+   - Enables Feign for declarative HTTP client calls.
+
+9. org.springframework.ui.Model
+   - Passes data from the controller to the view in Spring MVC.
+
+### Jackson Imports
+1. com.fasterxml.jackson.annotation.JsonIgnoreProperties
+   - Ignores unknown fields during JSON deserialization.
+
+### Lombok Imports
+1. lombok.Data
+   - Automatically generates getters, setters, toString, equals, and hashCode methods.
+
+### Java Standard Library Imports
+1. java.util.List
+   - Represents collections of weather data (e.g., weather conditions).
+
+2. java.lang.*
+   - Provides core Java functionality (e.g., String, Integer, etc.).
+
+### Spring Web Client
+1. org.springframework.web.client.RestTemplate
+   - Makes HTTP requests to external APIs.
+
+### Custom Imports
+1. com.weatherservice.model.*
+   - Represents data models for weather responses (e.g., WeatherResponse, Main, Weather, etc.).
+
+2. com.weatherservice.service.WeatherService
+   - Encapsulates business logic for fetching weather data.
+
+### Frontend Libraries (via WebJars)
+1. Bootstrap, Font Awesome, jQuery
+   - Used for styling, icons, and JavaScript utilities in the frontend.

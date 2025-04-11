@@ -1,0 +1,29 @@
+1. Spring Boot Starter Web
+   - Provides core features for building web applications, including RESTful APIs and embedded web servers like Tomcat.
+
+2. Spring Boot Starter Thymeleaf
+   - Enables server-side rendering of HTML templates using Thymeleaf.
+
+3. Spring Boot Starter Actuator
+   - Adds monitoring and management endpoints (e.g., /actuator/health, /actuator/metrics).
+
+4. Spring Cloud Netflix Eureka Client
+   - Enables service discovery and registration with Eureka in a distributed system.
+
+5. Spring Boot Starter Cache
+   - Provides caching support for improving performance by storing frequently accessed data.
+
+6. Caffeine
+   - A high-performance caching library used for in-memory caching.
+
+7. Lombok
+   - Reduces boilerplate code by generating getters, setters, and other methods at compile time.
+
+8. Spring Cloud OpenFeign
+   - Simplifies HTTP client calls to external APIs using declarative interfaces.
+
+9. WebJars (Bootstrap, Font Awesome, jQuery)
+   - Provides frontend libraries (e.g., Bootstrap for styling, Font Awesome for icons, and jQuery for JavaScript utilities).
+
+10. Spring Boot Starter Test
+    - Provides testing utilities for unit and integration testing.

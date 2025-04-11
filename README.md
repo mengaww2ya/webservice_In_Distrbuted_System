@@ -31,8 +31,11 @@ A distributed weather service built with Spring Boot that demonstrates various d
    ```
 4. Run the application:
    ```bash
-   mvn spring-boot:run
+   mvn spring-boot:run``` 
+ Or run by 
    ```
+   mvn clean install && ./debug.sh   ```
+
 
 ## API Endpoints
 

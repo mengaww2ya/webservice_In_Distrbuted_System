@@ -1,0 +1,52 @@
++-----------------------+
+|   User Interaction    |
+|-----------------------|
+| 1. Enters city name   |
+| 2. Submits request    |
++-----------------------+
+            |
+            v
++-----------------------+
+|   WebController       |
+|-----------------------|
+| 1. Handles request    |
+| 2. Calls WeatherService|
+| 3. Renders views      |
++-----------------------+
+            |
+            v
++-----------------------+
+|   WeatherService      |
+|-----------------------|
+| 1. Fetches weather    |
+|    data via Feign or  |
+|    RestTemplate       |
+| 2. Applies caching    |
++-----------------------+
+            |
+            v
++-----------------------+
+|   External Weather    |
+|       API             |
+|-----------------------|
+| 1. Responds with JSON |
+|    weather data       |
++-----------------------+
+            |
+            v
++-----------------------+
+|   WeatherResponse     |
+|-----------------------|
+| 1. Maps JSON data     |
+|    to Java objects    |
++-----------------------+
+            |
+            v
++-----------------------+
+|   Thymeleaf Templates |
+|-----------------------|
+| 1. Displays weather   |
+|    data to the user   |
+| 2. Dynamically styles |
+|    UI based on data   |
++-----------------------+
