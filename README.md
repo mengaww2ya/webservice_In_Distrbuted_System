@@ -129,15 +129,15 @@ GET /api/weather/London
 Below is a visual guide to show how the project looks like in the browser:
 
 1. **Home Page**  
-  ![Home Page](./image/home.png)
+  ![Home Page](./Image/home.png)
 
 2. **Weather Data Search**  
-  ![Input city](./image/find_weather.png)
+  ![Input city](./Image/find_weather.png)
 
 3. **Weather Data Result Display**  
-  ![Result](./image/result.png)
+  ![Result](./Image/result.png)
 
-These images illustrate the user interface and functionality of the project when accessed through a browser.
+These images illustrate the user interface and functionality of the project when accessed through a browser
 
 ---
 
